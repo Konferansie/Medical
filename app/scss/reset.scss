@@ -125,6 +125,10 @@ html {
   -ms-text-size-adjust: 100%; /* 2 */
 }
 
+a {
+  color: inherit;
+}
+
 /**
  * Address `outline` inconsistency between Chrome and other browsers.
  */
