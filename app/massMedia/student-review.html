@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Путешествие в Индию</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap&subset=cyrillic,cyrillic-ext"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/styles.css">
+
+
+</head>
+<body>
+
+<div class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="logo-wrapper">
+                    <a href="../index.html"><img src="../images/doverie_logo.svg" alt="Logo"></a>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <ul class="nav-menu">
+                    <li><a href="#aboutUs">О НАС</a></li>
+                    <li><a href="#our-services">Услуги</a></li>
+                    <li><a href="#ourTeam">Специалисты</a></li>
+                    <li><a href="#trichology">Трихопология</a></li>
+                    <li><a href="#">Отзывы</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Mass Media -->
+<section class="massMedia-item">
+    <div class="container">
+
+
+        <!-- Мое кредо – доброта и Отзывчивость -->
+        <div class="massmdedia-wrapper">
+
+            <div class="massmdedia-heading mt20px">Малика не хочет быть деревом</div>
+
+            <div class="massmdedia-text">
+                <iframe src="../images/massMedia/student_review.pdf#toolbar=0" width="100%" height="600px"></iframe>
+
+                <a href="../massMedia.html" class="article-link mb20px">Вернуться к списку статей</a>
+            </div>
+
+
+        </div>
+
+
+    </div>
+</section>
+
+
+<!-- 2GIS MAP -->
+<section id="contacts">
+    <div id="map" style="width:100%; height:500px"></div>
+</section>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+<script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
+
+
+<script type="text/javascript">
+    var map;
+
+    DG.then(function () {
+        map = DG.map('map', {
+            center: [42.82, 74.62],
+            zoom: 13
+        });
+
+        DG.marker([42.827128, 74.620993]).addTo(map).bindPopup('Клиника Профессора Балтабаева');
+    });
+
+</script>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
+</body>
+</html>
