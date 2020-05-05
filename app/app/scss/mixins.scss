@@ -1,0 +1,226 @@
+// Mixins media end
+
+@mixin desktop-large {
+  @media screen and (max-width: $desktop-large+px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (max-width: $desktop+px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media screen and (max-width: $laptop+px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: $tablet+px) {
+    @content;
+  }
+}
+
+@mixin tablet-large {
+  @media screen and (max-width: $tablet-large+px) {
+    @content;
+  }
+}
+
+
+@mixin mobile {
+  @media screen and (max-width: $mobile+px) {
+    @content;
+  }
+}
+
+@mixin small-mobile {
+  @media screen and (max-width: $small-mobile+px) {
+    @content;
+  }
+}
+
+@mixin extra-small {
+  @media screen and (max-width: $extra-small+px) {
+    @content;
+  }
+}
+
+@mixin landscape-mobile {
+  @media screen and (max-width: $mobile+px) and (orientation: $landscape) {
+    @content;
+  }
+}
+
+//Icons
+
+//Hover Btn sliding effect
+@mixin hover-sweep-right {
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  -webkit-transform: perspective(1px) translateZ(0);
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #2098D1;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 0 50%;
+    transform-origin: 0 50%;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    border-radius: 15px;
+  }
+  &:hover {
+    color: #fff;
+    background: $color-text-blue;
+    &:before {
+      transform: scaleX(1);
+    }
+  }
+}
+
+//Custom input syle
+@mixin form-input($size) {
+  height: $size;
+  box-sizing: border-box;
+  border: 2px solid #4fabfb;
+  border-radius: $size / 2;
+  background: #fff;
+}
+
+//Plus icon with rotate value ($deg)
+@mixin white-plus($size, $deg:0 ) {
+  height: $size;
+  width: $size;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJDYXBhXzEiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDQxMy4zNDggNDEzLjM0OCIgaGVpZ2h0PSI1MTIiIHZpZXdCb3g9IjAgMCA0MTMuMzQ4IDQxMy4zNDgiIHdpZHRoPSI1MTIiPjxnPjxwYXRoIGQ9Im00MTMuMzQ4IDI0LjM1NC0yNC4zNTQtMjQuMzU0LTE4Mi4zMiAxODIuMzItMTgyLjMyLTE4Mi4zMi0yNC4zNTQgMjQuMzU0IDE4Mi4zMiAxODIuMzItMTgyLjMyIDE4Mi4zMiAyNC4zNTQgMjQuMzU0IDE4Mi4zMi0xODIuMzIgMTgyLjMyIDE4Mi4zMiAyNC4zNTQtMjQuMzU0LTE4Mi4zMi0xODIuMzJ6IiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iYWN0aXZlLXBhdGgiIHN0eWxlPSJmaWxsOiNGRkZGRkYiIGRhdGEtb2xkX2NvbG9yPSIjMDAwMDAwIj48L3BhdGg+PC9nPiA8L3N2Zz4=);
+  background-repeat: no-repeat;
+  -webkit-background-size: $size;
+  background-size: $size;
+  transform: rotate($deg + 'deg');
+}
+@mixin blue-plus($size, $deg:0 ) {
+  height: $size;
+  width: $size;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJDYXBhXzEiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDQxMy4zNDggNDEzLjM0OCIgaGVpZ2h0PSI1MTIiIHZpZXdCb3g9IjAgMCA0MTMuMzQ4IDQxMy4zNDgiIHdpZHRoPSI1MTIiPjxnPjxwYXRoIGQ9Im00MTMuMzQ4IDI0LjM1NC0yNC4zNTQtMjQuMzU0LTE4Mi4zMiAxODIuMzItMTgyLjMyLTE4Mi4zMi0yNC4zNTQgMjQuMzU0IDE4Mi4zMiAxODIuMzItMTgyLjMyIDE4Mi4zMiAyNC4zNTQgMjQuMzU0IDE4Mi4zMi0xODIuMzIgMTgyLjMyIDE4Mi4zMiAyNC4zNTQtMjQuMzU0LTE4Mi4zMi0xODIuMzJ6IiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iYWN0aXZlLXBhdGgiIHN0eWxlPSJmaWxsOiM0RUJBRTciIGRhdGEtb2xkX2NvbG9yPSIjMDAwMDAwIj48L3BhdGg+PC9nPiA8L3N2Zz4=);
+  background-repeat: no-repeat;
+  -webkit-background-size: $size;
+  background-size: $size;
+  transform: rotate($deg + 'deg');
+}
+
+//Icons for redactor pannel
+@mixin redactor_heading_1($size) {
+  height: $size;
+  width: $size;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iaGVhZGVyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNC4wNDYiIGhlaWdodD0iMTQuMDQ2IiB2aWV3Qm94PSIwIDAgMTQuMDQ2IDE0LjA0NiI+DQogIDxwYXRoIGlkPSJQYXRoXzQxNzciIGRhdGEtbmFtZT0iUGF0aCA0MTc3IiBkPSJNMTEyLDI0MGg1LjI2N3YuODc4SDExMlptMCwwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTA4LjkyNyAtMjMzLjQxNikiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIvPg0KICA8cGF0aCBpZD0iUGF0aF80MTc4IiBkYXRhLW5hbWU9IlBhdGggNDE3OCIgZD0iTTM0LjYzNCwyOS4xNjhIMzJWMTZoMi42MzRabTAsMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTMxLjEyMiAtMTUuNTYxKSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjUpIi8+DQogIDxwYXRoIGlkPSJQYXRoXzQxNzkiIGRhdGEtbmFtZT0iUGF0aCA0MTc5IiBkPSJNMjkwLjYzNCwyOS4xNjhIMjg4VjE2aDIuNjM0Wm0wLDAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yODAuMDk5IC0xNS41NjEpIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNSkiLz4NCiAgPHBhdGggaWQ9IlBhdGhfNDE4MCIgZGF0YS1uYW1lPSJQYXRoIDQxODAiIGQ9Ik00MjMuMTkzLDE2NC4zODloLS44Nzh2LTMuNTExaC0uMjU3bC0uNzQ5Ljc0OS0uNjIxLS42MjFMNDIxLjY5NCwxNjBoMS41Wm0wLDAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00MDkuMTQ3IC0xNTUuNjExKSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjUpIi8+DQogIDxnIGlkPSJHcm91cF8yNTA0IiBkYXRhLW5hbWU9Ikdyb3VwIDI1MDQiPg0KICAgIDxwYXRoIGlkPSJQYXRoXzQxODEiIGRhdGEtbmFtZT0iUGF0aCA0MTgxIiBkPSJNMy45NS44NzhILjQzOUEuNDM5LjQzOSwwLDEsMSwuNDM5LDBIMy45NWEuNDM5LjQzOSwwLDEsMSwwLC44NzhabTAsMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjUpIi8+DQogICAgPHBhdGggaWQ9IlBhdGhfNDE4MiIgZGF0YS1uYW1lPSJQYXRoIDQxODIiIGQ9Ik0zLjk1LDQ4MC44NzhILjQzOWEuNDM5LjQzOSwwLDAsMSwwLS44NzhIMy45NWEuNDM5LjQzOSwwLDAsMSwwLC44NzhabTAsMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAtNDY2LjgzMikiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIvPg0KICAgIDxwYXRoIGlkPSJQYXRoXzQxODMiIGRhdGEtbmFtZT0iUGF0aCA0MTgzIiBkPSJNMjU5Ljk1LDQ4MC44NzhoLTMuNTExYS40MzkuNDM5LDAsMCwxLDAtLjg3OGgzLjUxMWEuNDM5LjQzOSwwLDAsMSwwLC44NzhabTAsMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI0OC45NzcgLTQ2Ni44MzIpIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNSkiLz4NCiAgICA8cGF0aCBpZD0iUGF0aF80MTg0IiBkYXRhLW5hbWU9IlBhdGggNDE4NCIgZD0iTTI1OS45NS44NzhoLTMuNTExYS40MzkuNDM5LDAsMSwxLDAtLjg3OGgzLjUxMWEuNDM5LjQzOSwwLDAsMSwwLC44NzhabTAsMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI0OC45NzcpIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNSkiLz4NCiAgPC9nPg0KPC9zdmc+DQo=);
+  background-repeat: no-repeat;
+  -webkit-background-size: $size;
+  background-size: $size;
+
+  &:hover,
+  .active {
+    height: $size;
+    width: $size;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iaGVhZGVyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNC4wNDYiIGhlaWdodD0iMTQuMDQ2IiB2aWV3Qm94PSIwIDAgMTQuMDQ2IDE0LjA0NiI+DQogIDxwYXRoIGlkPSJQYXRoXzQxNzciIGRhdGEtbmFtZT0iUGF0aCA0MTc3IiBkPSJNMTEyLDI0MGg1LjI2N3YuODc4SDExMlptMCwwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTA4LjkyNyAtMjMzLjQxNikiIGZpbGw9IiM0ZWJhZTciLz4NCiAgPHBhdGggaWQ9IlBhdGhfNDE3OCIgZGF0YS1uYW1lPSJQYXRoIDQxNzgiIGQ9Ik0zNC42MzQsMjkuMTY4SDMyVjE2aDIuNjM0Wm0wLDAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0zMS4xMjIgLTE1LjU2MSkiIGZpbGw9IiM0ZWJhZTciLz4NCiAgPHBhdGggaWQ9IlBhdGhfNDE3OSIgZGF0YS1uYW1lPSJQYXRoIDQxNzkiIGQ9Ik0yOTAuNjM0LDI5LjE2OEgyODhWMTZoMi42MzRabTAsMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI4MC4wOTkgLTE1LjU2MSkiIGZpbGw9IiM0ZWJhZTciLz4NCiAgPHBhdGggaWQ9IlBhdGhfNDE4MCIgZGF0YS1uYW1lPSJQYXRoIDQxODAiIGQ9Ik00MjMuMTkzLDE2NC4zODloLS44Nzh2LTMuNTExaC0uMjU3bC0uNzQ5Ljc0OS0uNjIxLS42MjFMNDIxLjY5NCwxNjBoMS41Wm0wLDAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00MDkuMTQ3IC0xNTUuNjExKSIgZmlsbD0iIzRlYmFlNyIvPg0KICA8ZyBpZD0iR3JvdXBfMjUwNCIgZGF0YS1uYW1lPSJHcm91cCAyNTA0Ij4NCiAgICA8cGF0aCBpZD0iUGF0aF80MTgxIiBkYXRhLW5hbWU9IlBhdGggNDE4MSIgZD0iTTMuOTUuODc4SC40MzlBLjQzOS40MzksMCwxLDEsLjQzOSwwSDMuOTVhLjQzOS40MzksMCwxLDEsMCwuODc4Wm0wLDAiIGZpbGw9IiM0ZWJhZTciLz4NCiAgICA8cGF0aCBpZD0iUGF0aF80MTgyIiBkYXRhLW5hbWU9IlBhdGggNDE4MiIgZD0iTTMuOTUsNDgwLjg3OEguNDM5YS40MzkuNDM5LDAsMCwxLDAtLjg3OEgzLjk1YS40MzkuNDM5LDAsMCwxLDAsLjg3OFptMCwwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIC00NjYuODMyKSIgZmlsbD0iIzRlYmFlNyIvPg0KICAgIDxwYXRoIGlkPSJQYXRoXzQxODMiIGRhdGEtbmFtZT0iUGF0aCA0MTgzIiBkPSJNMjU5Ljk1LDQ4MC44NzhoLTMuNTExYS40MzkuNDM5LDAsMCwxLDAtLjg3OGgzLjUxMWEuNDM5LjQzOSwwLDAsMSwwLC44NzhabTAsMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI0OC45NzcgLTQ2Ni44MzIpIiBmaWxsPSIjNGViYWU3Ii8+DQogICAgPHBhdGggaWQ9IlBhdGhfNDE4NCIgZGF0YS1uYW1lPSJQYXRoIDQxODQiIGQ9Ik0yNTkuOTUuODc4aC0zLjUxMWEuNDM5LjQzOSwwLDEsMSwwLS44NzhoMy41MTFhLjQzOS40MzksMCwwLDEsMCwuODc4Wm0wLDAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yNDguOTc3KSIgZmlsbD0iIzRlYmFlNyIvPg0KICA8L2c+DQo8L3N2Zz4NCg==);
+    background-repeat: no-repeat;
+    -webkit-background-size: $size;
+    background-size: $size;
+  }
+}
+
+//Gradinet font-color
+@mixin font_color_gradient($bg1, $bg2) {
+  background-image: -webkit-linear-gradient(top, $bg1, $bg2); /* For Chrome and Safari */
+  background-image:    -moz-linear-gradient(top, $bg1, $bg2); /* For old Fx (3.6 to 15) */
+  background-image:     -ms-linear-gradient(top, $bg1, $bg2); /* For pre-releases of IE 10*/
+  background-image:      -o-linear-gradient(top, $bg1, $bg2); /* For old Opera (11.1 to 12.0) */
+  background-image:         linear-gradient(to bottom, $bg1, $bg2); /* Standard syntax; must be last */
+  color:transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+
+//Chevron down
+
+@mixin chevron_down {
+  display: inline-block;
+  transform: rotate(180deg);
+  font-weight: bold;
+  line-height: 0.8;
+  position: absolute;
+  bottom: 0;
+  margin-left: 3px;
+  transform: rotate(180deg);
+}
+
+
+//Placeholder color
+@mixin placeholder_color_input ($color, $text-transform, $font-size){
+
+  input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: $color;
+    text-transform: $text-transform;
+    font-size: $font-size;
+  }
+  input::-moz-placeholder { /* Firefox 19+ */
+    color: $color;
+    text-transform: $text-transform;
+    font-size: $font-size;
+  }
+  input:-ms-input-placeholder { /* IE 10+ */
+    color: $color;
+    text-transform: $text-transform;
+    font-size: $font-size;
+  }
+  input:-moz-placeholder { /* Firefox 18- */
+    color: $color;
+    text-transform: $text-transform;
+    font-size: $font-size;
+  }
+}
+
+
+@mixin placeholder_color_textarea ($color, $text-transform, $font-size){
+
+  textarea::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: $color;
+    text-transform: $text-transform;
+    font-size: $font-size;
+  }
+  textarea::-moz-placeholder { /* Firefox 19+ */
+    color: $color;
+    text-transform: $text-transform;
+    font-size: $font-size;
+  }
+  textarea:-ms-input-placeholder { /* IE 10+ */
+    color: $color;
+    text-transform: $text-transform;
+    font-size: $font-size;
+  }
+  textarea:-moz-placeholder { /* Firefox 18- */
+    color: $color;
+    text-transform: $text-transform;
+    font-size: $font-size;
+  }
+}
+
+
